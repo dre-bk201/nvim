@@ -1,0 +1,18 @@
+return {
+    "pyright",
+    "cssls",
+    "volar",
+    "cssmodules_ls",
+    "emmet_ls",
+    "html",
+    "jsonls",
+    "tsserver",
+    "yamlls",
+    "bashls",
+    "clangd",
+    "rust_analyzer",
+    "tailwindcss",
+    "taplo",
+    "lua_ls",
+    "zls",
+};
