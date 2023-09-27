@@ -16,6 +16,19 @@ local colorschemes = {
   }
 };
 
+local ai = {
+  {
+    'Exafunction/codeium.vim',
+    event = 'BufEnter',
+    config = function()
+      vim.keymap.set('i', '<C-g>', function() return vim.fn['codeium#Accept']() end, { expr = true })
+      vim.keymap.set('i', '<c-;>', function() return vim.fn['codeium#CycleCompletions'](1) end, { expr = true })
+      vim.keymap.set('i', '<c-,>', function() return vim.fn['codeium#CycleCompletions'](-1) end, { expr = true })
+      vim.keymap.set('i', '<c-x>', function() return vim.fn['codeium#Clear']() end, { expr = true })
+    end
+  }
+};
+
 local file_browser = {
   {
     "kyazdani42/nvim-tree.lua",
@@ -67,15 +80,16 @@ local ui = {
     opts = require "bk201.opts.fidget",
     version = "legacy",
   },
-  {
-    "folke/noice.nvim",
-    event = "VeryLazy",
-    opts = require "bk201.opts.noice",
-    dependencies = {
-      "MunifTanjim/nui.nvim",
-      "rcarriga/nvim-notify",
-    }
-  }
+  -- {
+  --   "folke/noice.nvim",
+  --   event = "VeryLazy",
+  --   -- opts = require "bk201.opts.noice",
+  --   config = function() require "bk201.config.noice" end,
+  --   dependencies = {
+  --     "MunifTanjim/nui.nvim",
+  --     "rcarriga/nvim-notify",
+  --   }
+  -- }
 };
 
 local lsp = {
@@ -171,6 +185,7 @@ local editing_support = {
 
 return {
   ui,
+  ai,
   lsp,
   core,
   icons,

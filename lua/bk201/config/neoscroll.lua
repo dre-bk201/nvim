@@ -25,10 +25,10 @@ local t = {}
 -- t['L'] = {'scroll', { '0.10', 'true', '100'}}
 -- t["<c-k>"] = { "scroll", { "-vim.wo.scroll", "true", "50" } }
 -- t["<c-j>"] = { "scroll", { "vim.wo.scroll", "true", "50" } }
-t["<c-u>"] = { "scroll", { "-vim.wo.scroll", "true", "20" } }
-t["<c-d>"] = { "scroll", { "vim.wo.scroll", "true", "20" } }
-t['zt']    = {'zt', {'30'}}
-t['zz']    = {'zz', {'30'}}
-t['zb']    = {'zb', {'30'}}
+t["<c-u>"] = { "scroll", { "-vim.wo.scroll", "true", "10" } }
+t["<c-d>"] = { "scroll", { "vim.wo.scroll", "true", "10" } }
+-- t['zt']    = {'zt', {'30'}}
+-- t['zz']    = {'zz', {'30'}}
+-- t['zb']    = {'zb', {'30'}}
 
 require("neoscroll.config").set_mappings(t)
