@@ -80,16 +80,15 @@ local ui = {
     opts = require "bk201.opts.fidget",
     version = "legacy",
   },
-  -- {
-  --   "folke/noice.nvim",
-  --   event = "VeryLazy",
-  --   -- opts = require "bk201.opts.noice",
-  --   config = function() require "bk201.config.noice" end,
-  --   dependencies = {
-  --     "MunifTanjim/nui.nvim",
-  --     "rcarriga/nvim-notify",
-  --   }
-  -- }
+  {
+    "folke/noice.nvim",
+    event = "VeryLazy",
+    config = function() require "bk201.config.noice" end,
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "rcarriga/nvim-notify",
+    }
+  }
 };
 
 local lsp = {
