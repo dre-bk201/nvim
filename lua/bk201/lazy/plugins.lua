@@ -86,7 +86,10 @@ local ui = {
     config = function() require "bk201.config.noice" end,
     dependencies = {
       "MunifTanjim/nui.nvim",
-      "rcarriga/nvim-notify",
+      {
+        "rcarriga/nvim-notify",
+        config = function() require "bk201.config.notify" end
+      },
     }
   }
 };

@@ -49,7 +49,7 @@ if vim.lsp.inlay_hint then
 end
 -- vim.api.nvim_buf_set_option('n', '<space>h', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
 
--- vim.api.nvim_buf_set_option('n', '<space>re', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', { noremap=true, silent=true })
+vim.keymap.set('n', '<space>re', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', { noremap=true, silent=true })
 -- keymap("n", "<C-tab>", "<c-6>", opts)
 
 -- Tabs --
@@ -105,13 +105,13 @@ keymap("v", "p", '"_dP', opts)
 
 -- Terminal --
 -- Better terminal navigation
-keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
-keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
-keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
-keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
+-- keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
+-- keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
+-- keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
+-- keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
 -- Custom
-keymap("n", "<C-h>", "<cmd>nohlsearch<cr>", opts)
+-- keymap("n", "<C-h>", "<cmd>nohlsearch<cr>", opts)
 -- NOTE: the fact that tab and ctrl-i are the same is stupid
 -- keymap("n", "<TAB>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
 keymap("n", "Q", "<cmd>Bdelete!<CR>", opts)

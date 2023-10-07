@@ -15,12 +15,35 @@ end
 
 local function on_attach(client, bufnr)
   local opts = { noremap = true, silent = true }
+
+  vim.cmd [[autocmd! ColorScheme * highlight NormalFloat guibg=#1f2335]]
+  vim.cmd [[autocmd! ColorScheme * highlight FloatBorder guifg=white guibg=#1f2335]]
+
+  local border = {
+    { "🭽", "FloatBorder" },
+    { "▔", "FloatBorder" },
+    { "🭾", "FloatBorder" },
+    { "▕", "FloatBorder" },
+    { "🭿", "FloatBorder" },
+    { "▁", "FloatBorder" },
+    { "🭼", "FloatBorder" },
+    { "▏", "FloatBorder" },
+  }
+
+  -- To instead override globally
+  local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+  function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+    opts = opts or {}
+    opts.border = opts.border or border
+    return orig_util_open_floating_preview(contents, syntax, opts, ...)
+  end
+
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gD", "<cmd>Telescope lsp_declarations<CR>", opts)
   -- vim.api.nvim_buf_set_keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gI", "<cmd>Telescope lsp_implementations<CR>", opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+  vim.api.nvim_buf_set_keymap(bufnr, "n", "gl", "<cmd>lua vim.diagnostic.open_float{border = 'rounded'}<CR>", opts)
   vim.cmd([[ command! Format execute 'lua vim.lsp.buf.format({ async = true })' ]])
 
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
