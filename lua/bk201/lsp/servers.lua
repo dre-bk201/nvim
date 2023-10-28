@@ -12,6 +12,7 @@ return {
     "clangd",
     "rust_analyzer",
     "tailwindcss",
+    "gopls",
     "taplo",
     "lua_ls",
     "zls",

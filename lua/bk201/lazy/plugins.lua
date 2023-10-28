@@ -152,6 +152,7 @@ local completion = {
 local comment = {
   {
     "numToStr/Comment.nvim",
+    event = { "BufReadPre", "BufNewFile" },
     dependencies = {
       "JoosepAlviste/nvim-ts-context-commentstring",
       {
@@ -165,12 +166,16 @@ local comment = {
 
 local editing_support = {
   { "kylechui/nvim-surround" }, -- consider installing this
-  { "windwp/nvim-ts-autotag" },
   { "folke/neodev.nvim" },      -- lsp support to neovim modules
   { "jose-elias-alvarez/null-ls.nvim" },
   {
     "nvim-treesitter/nvim-treesitter",
-    config = function() require "bk201.config.treesitter" end
+    event = { "BufReadPre", "BufNewFile" },
+    build = ":TSUpdate",
+    dependencies = {
+      "windwp/nvim-ts-autotag",
+    },
+    config = function() require "bk201.config.treesitter" end,
   },
   {
     "nvim-telescope/telescope.nvim",
