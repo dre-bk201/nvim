@@ -38,7 +38,6 @@ local options = {
   title = true,
   -- colorcolumn = "80",
   -- colorcolumn = "120",
-
 }
 
 vim.g.loaded_netrw = 1
@@ -68,7 +67,9 @@ vim.g.neovide_padding_right = 0
 vim.g.neovide_padding_left = 0
 vim.g.transparent_enabled = true
 vim.g.transparency = 0.8
-vim.opt.guifont = { "Comic Code Patched", ":h12" }
+-- vim.opt.guifont = { "Comic Code Patched", ":h12" }
+-- vim.opt.guifont = { "ComicShannsMono Nerd Font", ":h12" }
+vim.opt.guifont = { "ComicShannsMono Patched", ":h12" }
 
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
