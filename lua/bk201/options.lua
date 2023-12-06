@@ -17,9 +17,9 @@ local options = {
   splitright = true,                       -- force all vertical splits to go to the right of current window
   swapfile = false,                        -- creates a swapfile
   termguicolors = true,                    -- set term gui colors (most terminals support this)
-  timeoutlen = 500,                       -- time to wait for a mapped sequence to complete (in milliseconds)
+  timeoutlen = 500,                        -- time to wait for a mapped sequence to complete (in milliseconds)
   undofile = true,                         -- enable persistent undo
-  updatetime = 100,                       -- faster completion (4000ms default)
+  updatetime = 100,                        -- faster completion (4000ms default)
   writebackup = false,                     -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
   expandtab = true,                        -- convert tabs to spaces
   shiftwidth = 2,                          -- the number of spaces inserted for each indentation
@@ -29,10 +29,10 @@ local options = {
   laststatus = 3,
   showcmd = false,
   ruler = false,
-  relativenumber = true,                   -- set relative numbered lines
-  numberwidth = 4,                         -- set number column width to 2 {default 4}
-  signcolumn = "yes",                      -- always show the sign column, otherwise it would shift the text each time
-  wrap = false,                            -- display lines as one long line
+  relativenumber = true, -- set relative numbered lines
+  numberwidth = 4,       -- set number column width to 2 {default 4}
+  signcolumn = "yes",    -- always show the sign column, otherwise it would shift the text each time
+  wrap = false,          -- display lines as one long line
   -- scrolloff = 8,                           -- is one of my fav
   sidescrolloff = 8,
   title = true,
@@ -69,7 +69,14 @@ vim.g.transparent_enabled = true
 vim.g.transparency = 0.8
 -- vim.opt.guifont = { "Comic Code Patched", ":h12" }
 -- vim.opt.guifont = { "ComicShannsMono Nerd Font", ":h12" }
-vim.opt.guifont = { "ComicShannsMono Patched", ":h12" }
+
+local is_win = require "bk201.functions".is_windows();
+
+if is_win then
+  vim.opt.guifont = { "ComicShannsMono Patched", ":h12" }
+else
+  vim.opt.guifont = { "ComicShannsMono Patched", ":h13" }
+end
 
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
@@ -80,4 +87,3 @@ vim.filetype.add {
     conf = "dosini",
   },
 }
-
